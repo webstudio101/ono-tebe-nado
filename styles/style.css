@@ -1,1 +1,453 @@
-/* место для вашего кода */
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+:-webkit-any(article, nav, section) h1 h2 h3 h4 h5 h6 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-size: auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 148px 1fr;
+  align-items: center;
+  /*border: black solid 1px;*/
+  min-height: 109px;
+  margin: 92px 50px 0;
+}
+
+/*  контейнер навигации */
+
+.header__menu {
+  justify-self: start;
+  min-width: 390px;
+}
+
+/*  список ссылок */
+
+.header__links-list {
+  display: flex;
+  justify-content: start;
+  gap: 29px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: normal;
+  list-style-position: outside;
+}
+
+/*пункт списка ссылок*/
+
+.header__links-list-item {
+  padding-left: 4px;
+  list-style-image: url(../images/list_marker.svg);
+}
+
+/* ссылка без кружочка перед ней*/
+
+.header__links-list-item_no-bullit {
+  padding: 0;
+  list-style: none;
+}
+
+/*  ссылка */
+
+.header__link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-position: under;
+}
+
+/*  активная ссылка */
+
+.header__link_active {
+  text-decoration: none;
+}
+
+/* контейнер логотипа */
+
+.header__logo {
+  display: block;
+  width: 148px;
+  height: 105px;
+}
+
+/* картинка с логотипом */
+
+.header__logo-image {
+  background-image: url(../images/logo-black.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*контейнер с адресом*/
+
+.address {
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 24.3px;
+  /* 135% */
+}
+
+/*  потребуется, чтобы выравнивать блок с адресом. В футере используется другое выравнивание */
+.header__address {
+  justify-self: end;
+  padding-right: 2px;
+  max-width: 240px;
+}
+
+/* cover section */
+
+.cover {
+  margin-top: 92px;
+  background-image: url(../images/cover.jpg);
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+/* полупрозрачный блок поверх секции */
+.overlay {
+  position: relative;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.6;
+  background-color: black;
+}
+
+/* заголовок */
+.cover__title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px 0;
+  padding: 165px 50px 0 50px;
+  font-weight: 700;
+  font-size: 100px;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 30px;
+  text-transform: uppercase;
+}
+
+/* классы для выравнивания строк текста и превращения их в блочный элемент */
+
+span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
+  display: block;
+}
+
+.aligned-text {
+  line-height: 115%;
+  /* 115px */
+}
+
+.aligned-text_center {
+  align-self: center;
+  padding-right: 30px;
+}
+
+.aligned-text_right {
+  align-self: end;
+}
+
+/* класс для управления межбуквенным расстоянием в местах, где есть эти акценты */
+.letter-spacing-extended {
+  letter-spacing: 60px;
+}
+
+/* класс для обнуления общего межбуквенного расстояния для последней буквы */
+.no-letter-spacing {
+  letter-spacing: 0;
+}
+
+/*  контейнер для подзаголовка и кнопки */
+.cover__description {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 135px;
+  padding: 0 50px 50px;
+  gap: 0 78px;
+}
+
+/*текст подзаголовка*/
+.cover__description-text {
+  /* padding-right: 78px;*/
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  word-spacing: 0.8em;
+}
+
+/*кнопка «Сделать ставку»*/
+.bet-button {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  width: 257px;
+  height: 52px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: white solid 1px;
+  color: white;
+  background: transparent;
+}
+
+/*lost section*/
+
+.lots {
+  margin-top: 180px;
+  padding: 0 50px;
+}
+
+/* заголовок секции  */
+
+.lots__heading {
+  text-transform: uppercase;
+  color: black;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-left: 40px;
+  min-height: 47px;
+}
+
+/* список карточек */
+
+.lots__card-list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 27px;
+  margin-bottom: 32px;
+}
+
+/*  пункт списка карточки */
+
+.lots__card-list-item {
+  width: 430px;
+  min-height: 450px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-grow: 1;
+}
+
+/*  — ссылка, обрамляющая карточку */
+
+.card-link {
+  text-decoration: none;
+}
+
+/* карточка */
+
+.card {
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* классы, чтобы задать определённый фон каждой из карточек */
+
+.card_type_film {
+  background-image: url(../images/card-lot-01.jpg);
+}
+
+.card_type_book {
+  background-image: url(../images/card-lot-02.jpg);
+}
+
+.card_type_picture {
+  background-image: url(../images/card-lot-03.jpg);
+}
+
+/* заголовок карточки */
+
+.card__title {
+  padding-top: 50px;
+  width: 350px;
+  /*align-self: start;*/
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  /* 26.4px */
+  text-decoration-line: underline;
+  text-transform: uppercase;
+}
+
+/*  текст карточки */
+.card__text {
+  /*padding: 0 40px;*/
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  /* 24px */
+  width: 350px;
+  padding-bottom: 50px;
+}
+
+/* ссылка «Посмотреть больше» */
+.lots__look-more-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-position: under;
+  padding-left: 40px;
+  color: black;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* about section */
+
+.about {
+  margin-top: 182px;
+  padding: 0 50px;
+  display: grid;
+  column-gap: 25px;
+  grid-template-columns: 430px 1fr;
+  /* grid-template-rows: repeat(3, 1fr);*/
+}
+
+/* класс для колонок */
+
+.about__column {
+  justify-self: center;
+}
+
+/*  контейнер с логотипом */
+
+.about__logo {
+  border-radius: 50%;
+  background-color: black;
+  width: 240px;
+  height: 240px;
+
+  /*grid-row-start: 1;
+  grid-row-end: 4;*/
+}
+
+/*  изображение логотипа */
+
+.about__logo-image {
+  background-image: url(../images/logo-white.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 148px 114px;
+  z-index: 1;
+}
+
+/* заголовок секции */
+.about__title {
+  padding: 100px 0;
+
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  /*align-self: baseline;*/
+}
+
+/* — блок для текстов секции. */
+.about__text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  /*align-self: start;*/
+}
+
+.about__text:first-of-type {
+  padding-bottom: 25px;
+}
+
+/* footer section */
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /*align-items: center;*/
+  padding: 0 50px;
+  margin-top: 180px;
+}
+
+.footer__address {
+  max-width: 240px;
+}
+
+/* — блок навигации по списку ссылок. <nav>  */
+
+.footer__menu {
+  color: black;
+}
+
+/* — список пунктов меню; */
+.footer__menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+/* — пункт списка меню; */
+
+.footer__menu-list-item {
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  list-style: none;
+}
+
+/* — ссылка меню; */
+.footer__menu-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-position: under;
+}
+
+/* — активная ссылка меню (без подчеркивания); */
+.footer__menu-link_active {
+  text-decoration: none;
+}
+
+/* — список ссылок на социальные сети.*/
+.footer__social-list {
+  align-self: start;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 48px;
+}
+
+/* — пункт списка ссылок на социальные сети; */
+.footer__social-list-item {
+  list-style: none;
+}
+
+/* — ссылка на социальные сети; */
+.footer__social-link {
+  text-decoration: none;
+  border: none;
+}
+
+/* – иконка социальной сети. */
+.footer__social-icon {
+  width: 48px;
+  height: 48px;
+}
