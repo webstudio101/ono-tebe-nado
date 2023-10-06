@@ -1,14 +1,3 @@
-body {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-:-webkit-any(article, nav, section) h1 h2 h3 h4 h5 h6 {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  font-size: auto;
-}
-
 .header {
   display: grid;
   grid-template-columns: 1fr 148px 1fr;
@@ -36,6 +25,14 @@ body {
   line-height: normal;
   list-style-position: outside;
 }
+
+.header__links-list:first-child{
+
+  padding: 0;
+  list-style: none;
+
+}
+
 
 /*пункт списка ссылок*/
 
@@ -71,14 +68,10 @@ body {
   display: block;
   width: 148px;
   height: 105px;
-}
-
-/* картинка с логотипом */
-
-.header__logo-image {
   background-image: url(../images/logo-black.svg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 148px 105px;
 }
 
 /*контейнер с адресом*/
@@ -88,6 +81,7 @@ body {
   font-size: 18px;
   font-style: normal;
   line-height: 24.3px;
+  max-width: 240px;
   /* 135% */
 }
 
@@ -95,7 +89,7 @@ body {
 .header__address {
   justify-self: end;
   padding-right: 2px;
-  max-width: 240px;
+  
 }
 
 /* cover section */
@@ -106,17 +100,20 @@ body {
   background-position: center;
   background-size: cover;
   color: white;
+  position: relative;
+  z-index: 0;
 }
 
-/* полупрозрачный блок поверх секции */
+
+/*полупрозрачный блок поверх секции */
 .overlay {
-  position: relative;
+  position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: -1;
   opacity: 0.6;
   background-color: black;
 }
-
+/*
 /* заголовок */
 .cover__title {
   display: flex;
@@ -130,6 +127,7 @@ body {
   line-height: 100%;
   letter-spacing: 30px;
   text-transform: uppercase;
+ 
 }
 
 /* классы для выравнивания строк текста и превращения их в блочный элемент */
@@ -145,7 +143,7 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
 
 .aligned-text_center {
   align-self: center;
-  padding-right: 30px;
+ /*padding-right: 30px;*/
 }
 
 .aligned-text_right {
@@ -170,6 +168,7 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   margin-top: 135px;
   padding: 0 50px 50px;
   gap: 0 78px;
+  
 }
 
 /*текст подзаголовка*/
@@ -180,7 +179,7 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   font-weight: 400;
   line-height: 28px;
   text-transform: uppercase;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   word-spacing: 0.8em;
 }
 
@@ -189,8 +188,7 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  width: 257px;
-  height: 52px;
+  padding: 12px 32px;
   flex-shrink: 0;
   text-transform: uppercase;
   white-space: nowrap;
@@ -216,7 +214,7 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   font-weight: 700;
   line-height: normal;
   padding-left: 40px;
-  min-height: 47px;
+ /* min-height: 47px;*/
 }
 
 /* список карточек */
@@ -256,6 +254,12 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
 }
 
 /* классы, чтобы задать определённый фон каждой из карточек */
@@ -285,6 +289,8 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   /* 26.4px */
   text-decoration-line: underline;
   text-transform: uppercase;
+  text-decoration-thickness: 1px;
+  text-underline-position: under;
 }
 
 /*  текст карточки */
@@ -336,25 +342,15 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   background-color: black;
   width: 240px;
   height: 240px;
-
-  /*grid-row-start: 1;
-  grid-row-end: 4;*/
-}
-
-/*  изображение логотипа */
-
-.about__logo-image {
   background-image: url(../images/logo-white.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 148px 114px;
-  z-index: 1;
 }
 
 /* заголовок секции */
 .about__title {
   padding: 100px 0;
-
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
@@ -370,18 +366,20 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   font-weight: 400;
   line-height: normal;
   /*align-self: start;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
 }
 
-.about__text:first-of-type {
-  padding-bottom: 25px;
-}
+
 
 /* footer section */
 .footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /*align-items: center;*/
-  padding: 0 50px;
+  padding: 0 50px 90px 50px;
   margin-top: 180px;
 }
 
@@ -433,12 +431,14 @@ span:where(.aligned-text, .aligned-text_center, .aligned-text_right) {
   align-items: center;
   justify-content: end;
   gap: 48px;
-}
-
-/* — пункт списка ссылок на социальные сети; */
-.footer__social-list-item {
   list-style: none;
 }
+
+/* — пункт списка ссылок на социальные сети; 
+.footer__social-list-item {
+  
+}
+*/
 
 /* — ссылка на социальные сети; */
 .footer__social-link {
